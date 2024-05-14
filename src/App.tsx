@@ -1,13 +1,18 @@
 import React from 'react';
 
 import './App.css';
+import Header from './layout/Header';
+import Hero from './layout/Hero';
+import Offer from './layout/Offer';
+import Footer from './layout/Footer';
 
 function App() {
   return (
-    <div className="App ">
-      <h1 className="py-5 font-bold text-decoration-line: underline border border-width: 2px rounded-full ">
-        Ahoj
-      </h1>
+    <div>
+      <Header />
+      <Hero />
+      <Offer />
+      <Footer />
     </div>
   );
 }
