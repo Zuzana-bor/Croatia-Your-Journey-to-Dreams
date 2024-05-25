@@ -2,21 +2,21 @@ import { Link } from 'react-router-dom';
 
 const MenuForMobil = () => {
   return (
-    <div className="absolute top-5 left-0 z-10 transition-transform  ease-linear border w-96 bg-gray-100">
+    <div className="transition-transform duration-500 ease-in-out delay-450 absolute top-0 left-0 z-10 w-85 bg-gray-100 h-full">
       <ul>
         <div>logo</div>
         <nav>
           <ul>
-            <li>
+            <li className="m-7">
               <Link to={`/croatia`}>About Croatia</Link>
             </li>
-            <li>
+            <li className="m-7">
               <Link to={`planning`}>Plánování trasy</Link>
             </li>
-            <li>
+            <li className="m-7">
               <Link to={`review`}>Recenze</Link>
             </li>
-            <li>
+            <li className="m-7">
               <Link to={`media`}>Sociální média</Link>
             </li>
           </ul>
