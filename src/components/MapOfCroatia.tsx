@@ -1,24 +1,32 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, FC } from 'react';
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import XYZ from 'ol/source/XYZ';
-import { transform } from 'ol/proj';
+import { Feature } from 'ol';
+import { Geometry } from 'ol/geom';
 
-const MapOfCroatia = () => {
+export type MapOfCroatiaProps = {
+  features: Feature[];
+};
+
+const MapOfCroatia: FC<MapOfCroatiaProps> = ({ features }) => {
+  const [map, setMap] = useState<Map | null>(null);
+  const [featuresLayer, setFeaturesLayer] =
+    useState<VectorLayer<Feature<Geometry>>>();
+
   const mapElement = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    console.log('načetla jsem se');
     const initialFeaturesLayer = new VectorLayer({
       source: new VectorSource(),
     });
 
-    if (mapElement != null) {
+    if (mapElement.current) {
       const initialMap = new Map({
-        target: mapElement.current as HTMLDivElement,
+        target: mapElement.current,
         layers: [
           new TileLayer({
             source: new XYZ({
@@ -32,16 +40,27 @@ const MapOfCroatia = () => {
           zoom: 2,
         }),
       });
+      setMap(initialMap);
+      setFeaturesLayer(initialFeaturesLayer);
     }
   }, []);
+
+  useEffect(() => {
+    if (features.length && map && featuresLayer) {
+      const newSource = new VectorSource({ features });
+      featuresLayer.setSource(newSource);
+      map.getView().fit(newSource.getExtent(), {
+        padding: [100, 100, 100, 100],
+      });
+    }
+  }, [features]);
+
   return (
-    <>
-      <div
-        ref={mapElement}
-        id="map-container"
-        style={{ width: '100%', height: '400px' }}
-      ></div>
-    </>
+    <div
+      ref={mapElement}
+      id="map-container"
+      style={{ width: '50%', height: '400px' }}
+    ></div>
   );
 };
 
