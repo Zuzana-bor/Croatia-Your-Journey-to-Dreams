@@ -42,6 +42,11 @@ const MapOfCroatia: FC<MapOfCroatiaProps> = ({ features }) => {
       });
       setMap(initialMap);
       setFeaturesLayer(initialFeaturesLayer);
+      return () => {
+        if (initialMap) {
+          initialMap.setTarget(undefined);
+        }
+      };
     }
   }, []);
 
@@ -53,7 +58,7 @@ const MapOfCroatia: FC<MapOfCroatiaProps> = ({ features }) => {
         padding: [100, 100, 100, 100],
       });
     }
-  }, [features]);
+  }, [features, featuresLayer, map]);
 
   return (
     <div

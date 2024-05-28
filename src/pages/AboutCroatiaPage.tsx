@@ -11,8 +11,6 @@ const AboutCroatiaPage = () => {
     fetch('/assets/mock-geojson-api.json')
       .then((response) => response.json())
       .then((fetchedFeatures) => {
-        // parse fetched geojson into OpenLayers features
-        //  use options to convert feature from EPSG:4326 to EPSG:3857
         const wktOptions = {
           dataProjection: 'EPSG:4326',
           featureProjection: 'EPSG:3857',
@@ -22,8 +20,6 @@ const AboutCroatiaPage = () => {
           wktOptions,
         );
 
-        // set features into state (which will be passed into OpenLayers
-        //  map component as props)
         setFeatures(parsedFeatures);
       });
   }, []);
