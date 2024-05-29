@@ -10,7 +10,10 @@ const Offer = () => {
       <Link to={`/croatia`}>
         <Croatia />
       </Link>
-      <Planning />
+      <Link to={'/planning'}>
+        {' '}
+        <Planning />
+      </Link>
       <Review />
       <Media />
     </div>

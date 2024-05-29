@@ -5,6 +5,8 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import AboutCroatiaPage from './pages/AboutCroatiaPage';
+import Planning from './components/Planning';
+import PlanningPage from './pages/PlanningPage';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +19,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/planning',
-    element: <AboutCroatiaPage />,
+    element: <PlanningPage />,
   },
   {
     path: '/review',

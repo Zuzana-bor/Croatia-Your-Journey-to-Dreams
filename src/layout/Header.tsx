@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Menu from '../components/Menu';
 import Search from '../components/Search';
 
@@ -5,7 +6,9 @@ const Header = () => {
   return (
     <>
       <div className=" flex justify-between p-4  ">
-        <div>logo</div>
+        <Link to={'/'}>
+          <div>logo</div>
+        </Link>
         <div>
           <Search />
         </div>
