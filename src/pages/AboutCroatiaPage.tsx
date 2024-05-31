@@ -27,10 +27,12 @@ const AboutCroatiaPage = () => {
     <>
       <Header />
       <AboutCroatiaNews />
-      článek o chorvatku- v něm odkazy částí + měst Istrie, severní
-      dalmácie,střední dalmácie,jižní dalmácie města Začneme: střední dalmácie-
-      Trogir jižní dalmícií + Brist - známe
-      <MapOfCroatia features={features} />
+      <div className="container mx-auto px-6 p-10">
+        článek o chorvatku- v něm odkazy částí + měst Istrie, severní
+        dalmácie,střední dalmácie,jižní dalmácie města Začneme: střední
+        dalmácie- Trogir jižní dalmícií + Brist - známe
+        <MapOfCroatia features={features} />
+      </div>
     </>
   );
 };

@@ -29,6 +29,14 @@ const router = createBrowserRouter([
     path: '/media',
     element: <AboutCroatiaPage />,
   },
+  {
+    path: '/media',
+    element: <AboutCroatiaPage />,
+  },
+  {
+    path: '/zjisti, která lokalita je pro tebe ta pravá',
+    element: <PlanningPage />,
+  },
 ]);
 
 function App() {
