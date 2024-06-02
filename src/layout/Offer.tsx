@@ -15,7 +15,10 @@ const Offer = () => {
         <Planning />
       </Link>
       <Review />
-      <Media />
+      <Link to={'/media'}>
+        
+        <Media />
+      </Link>
     </div>
   );
 };

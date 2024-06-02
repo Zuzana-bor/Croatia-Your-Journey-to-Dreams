@@ -25,3 +25,17 @@ export type FormAnswers = {
   answer3: string;
   answer4: string;
 };
+
+export const initialUser: User = {
+  access_token: '',
+  expires_in: 0,
+  token_type: '',
+  scope: '',
+};
+
+export type User = {
+  access_token: string;
+  expires_in: number;
+  token_type: string;
+  scope: string;
+};

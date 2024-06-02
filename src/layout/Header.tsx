@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Menu from '../components/Menu';
 import Search from '../components/Search';
+import Login from '../components/Login';
 
 const Header = () => {
   return (
@@ -11,6 +12,9 @@ const Header = () => {
         </Link>
         <div>
           <Search />
+        </div>
+        <div>
+          <Login />
         </div>
         <div>
           <Menu />
