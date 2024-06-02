@@ -8,7 +8,7 @@ const Header = () => {
     <>
       <div className=" flex justify-between p-4  ">
         <Link to={'/'}>
-          <div>logo</div>
+          <div>logoo</div>
         </Link>
         <div>
           <Search />

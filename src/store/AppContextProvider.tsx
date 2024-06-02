@@ -1,5 +1,4 @@
 import { ReactNode, useState } from 'react';
-
 import { User } from '../config';
 import { AppContext } from './AppContext';
 
