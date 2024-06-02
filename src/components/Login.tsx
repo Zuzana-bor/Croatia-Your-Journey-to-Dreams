@@ -48,7 +48,7 @@ const Login = () => {
       {profile ? (
         <div className="flex ">
           <img src={profile.picture} alt="user " />
-          <h3>User Logged in</h3>
+
           <p> Name:{profile.name}</p>
           <p>Email Adress:{profile.email}</p>
           <button onClick={logOut}>Log out</button>
