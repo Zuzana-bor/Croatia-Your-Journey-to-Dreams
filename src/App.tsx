@@ -1,5 +1,3 @@
-import React from 'react';
-
 import './App.css';
 import { AppContextProvider } from './store/AppContextProvider';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
