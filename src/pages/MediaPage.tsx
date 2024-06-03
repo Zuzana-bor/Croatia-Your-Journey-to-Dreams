@@ -1,24 +1,31 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import AboutCroatiaNews from '../layout/AboutCroatiaNews';
 import Header from '../layout/Header';
-import { useState } from 'react';
 import { AppContext } from '../store/AppContext';
 
 export type MediaItem = {
-  item: string;
-  index: number;
   baseUrl: string;
+  filename: string;
 };
 
-const MediaPage = () => {
+export type Album = {
+  id: string;
+  title: string;
+};
+
+export type User = {
+  access_token: string;
+};
+
+const MediaPage: React.FC = () => {
   const [mediaItems, setMediaItems] = useState<MediaItem[]>([]);
-  const { user } = React.useContext(AppContext);
+  const { user } = useContext(AppContext);
 
   const loadMediaItems = () => {
     console.log('funguju');
 
     if (user) {
-      fetch('https://photoslibrary.googleapis.com/v1/mediaItems', {
+      fetch('https://photoslibrary.googleapis.com/v1/albums', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -28,11 +35,33 @@ const MediaPage = () => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          if (data.mediaItems) {
-            setMediaItems(data.mediaItems);
+          const testAlbum: Album | undefined = data.albums.find(
+            (album: Album) => album.title === 'Test',
+          );
+          if (testAlbum) {
+            fetch('https://photoslibrary.googleapis.com/v1/mediaItems:search', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${user.access_token}`,
+              },
+              body: JSON.stringify({
+                albumId: testAlbum.id,
+              }),
+            })
+              .then((res) => res.json())
+              .then((mediaData) => {
+                console.log(mediaData);
+                if (mediaData.mediaItems) {
+                  setMediaItems(mediaData.mediaItems);
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          } else {
+            console.error('Album "Test" not found');
           }
-
-          console.log(mediaItems);
         })
         .catch((error) => {
           console.error(error);
@@ -44,10 +73,10 @@ const MediaPage = () => {
     <>
       <Header />
       <AboutCroatiaNews />
-      <p>fotky test</p>
+      <p>Fotky z alba "Test"</p>
       <button onClick={loadMediaItems}>Načíst fotky</button>
       {mediaItems.map((item, index) => (
-        <img key={index} src={item.baseUrl} alt={`Fotka${index}`} />
+        <img key={index} src={item.baseUrl} alt={`Fotka ${index}`} />
       ))}
     </>
   );
