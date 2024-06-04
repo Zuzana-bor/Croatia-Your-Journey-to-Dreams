@@ -34,7 +34,6 @@ const MediaPage: React.FC = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           const testAlbum: Album | undefined = data.albums.find(
             (album: Album) => album.title === 'Test',
           );

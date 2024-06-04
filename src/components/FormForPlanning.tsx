@@ -26,7 +26,7 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
 
   return (
     <>
-      <div className="p-4 max-w-xl mx-auto ">
+      <div className=" ">
         <h1 className="text-2xl font-bold mb-4">Dotazník</h1>
         <form className="flex flex-col">
           {questions
