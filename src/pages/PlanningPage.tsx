@@ -13,8 +13,8 @@ const PlanningPage = () => {
     <>
       <Header />
       <AboutCroatiaNews />
-      <div className="flex flex-row justify-center">
-        <div className="container p-4 max-w-xl mx-auto">
+      <div className="container flex flex-row flex-wrap mx-auto p-10">
+        <div className=" p-4 max-w-xl mx-auto">
           <p> Zjisti, která lokalita je pro tebe ta pravá</p>
           <button
             onClick={handleClickOpen}
@@ -25,7 +25,7 @@ const PlanningPage = () => {
           {oepnQuestonnaire ? <Questions /> : null}
         </div>
 
-        <div className="container p-4 max-w-xl mx-auto">
+        <div className=" p-4 max-w-xl mx-auto">
           <p>
             naplánuj si cestu- přestávky, zajímavá místa po cestě, finance,
             mapa...
