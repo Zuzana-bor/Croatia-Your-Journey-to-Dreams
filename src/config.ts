@@ -6,6 +6,7 @@ export const initialQuestion = {
 
 export type Question = {
   id: number;
+  name: string;
   question: string;
   options: string[];
 };
@@ -13,17 +14,17 @@ export type Question = {
 export type SteOfQuestions = Question[];
 
 export const initialFormAnswers: FormAnswers = {
-  answer1: '',
-  answer2: '',
-  answer3: '',
-  answer4: '',
+  name: '',
+  age: '',
+  color: '',
+  hobby: '',
 };
 
 export type FormAnswers = {
-  answer1: string;
-  answer2: string;
-  answer3: string;
-  answer4: string;
+  name: string;
+  age: string;
+  color: string;
+  hobby: string;
 };
 
 export const initialUser: User = {
@@ -39,3 +40,11 @@ export type User = {
   token_type: string;
   scope: string;
 };
+
+export const getIsFilled = ({
+  name,
+  age,
+  color,
+  hobby,
+}: FormAnswers): boolean =>
+  !!name.length && !!age.length && !!color.length && !!hobby.length;

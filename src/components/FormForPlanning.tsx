@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 
-import { FormAnswers } from '../config';
+import { FormAnswers, initialFormAnswers, initialQuestion } from '../config';
 import { questions } from '../data/questions';
 
 type FormForPlanningProps = {
@@ -13,6 +13,8 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
   handleChange,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
+  const [allAnswered, setAllAnswered] = useState<boolean>(false);
+
   const handleClickChangePlus = () => {
     if (currentQuestion !== questions.length) {
       setCurrentQuestion(currentQuestion + 1);
@@ -23,6 +25,10 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
       setCurrentQuestion(currentQuestion - 1);
     } else setCurrentQuestion(1);
   };
+
+  const handleSubmit = () => {};
+
+  console.log(formAnswers);
 
   return (
     <>
@@ -40,9 +46,9 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
                     <input
                       type="checkbox"
                       id={`${question.id}-${optionIndex}`}
-                      name={`question${question.id}`}
-                      onChange={handleChange}
+                      name={question.name}
                       value={option}
+                      onChange={handleChange}
                     />
 
                     <span>{option}</span>
@@ -63,6 +69,15 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
         >
           vpřed
         </button>
+
+        <div>
+          <button
+            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 m-4 rounded shadow transition-all hover:scale-110"
+            onClick={handleSubmit}
+          >
+            vyhodnoť mé odpovědi
+          </button>
+        </div>
       </div>
     </>
   );
