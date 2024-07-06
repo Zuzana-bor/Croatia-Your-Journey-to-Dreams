@@ -21,6 +21,7 @@ export const initialFormAnswers: FormAnswers = {
 };
 
 export type FormAnswers = {
+  [key: string]: string[] | string;
   name: string;
   age: string;
   color: string;

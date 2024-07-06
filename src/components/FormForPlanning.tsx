@@ -59,6 +59,9 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
                       name={question.name}
                       value={option}
                       onChange={handleChange}
+                      checked={
+                        formAnswers[question.name]?.includes(option) || false
+                      }
                     />
 
                     <span>{option}</span>
