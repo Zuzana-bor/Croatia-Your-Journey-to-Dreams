@@ -1,6 +1,11 @@
 import React, { FC, useState } from 'react';
 
-import { FormAnswers, initialFormAnswers, initialQuestion } from '../config';
+import {
+  FormAnswers,
+  getIsFilled,
+  initialFormAnswers,
+  initialQuestion,
+} from '../config';
 import { questions } from '../data/questions';
 
 type FormForPlanningProps = {
@@ -13,7 +18,8 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
   handleChange,
 }) => {
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
-  const [allAnswered, setAllAnswered] = useState<boolean>(false);
+
+  const isFilled = getIsFilled(formAnswers);
 
   const handleClickChangePlus = () => {
     if (currentQuestion !== questions.length) {
@@ -26,7 +32,11 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
     } else setCurrentQuestion(1);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    if (isFilled) {
+      console.log(formAnswers);
+    }
+  };
 
   console.log(formAnswers);
 
@@ -72,8 +82,13 @@ const FormForPlanning: FC<FormForPlanningProps> = ({
 
         <div>
           <button
-            className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 m-4 rounded shadow transition-all hover:scale-110"
+            className={`bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 m-4 rounded shadow transition-all hover:scale-110 ${
+              isFilled
+                ? 'bg-gray-400 hover:bg-gray-500 text-white hover:scale-110'
+                : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+            }`}
             onClick={handleSubmit}
+            disabled={!isFilled}
           >
             vyhodnoť mé odpovědi
           </button>
