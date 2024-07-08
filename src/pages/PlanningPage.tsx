@@ -2,6 +2,7 @@ import AboutCroatiaNews from '../layout/AboutCroatiaNews';
 import Header from '../layout/Header';
 import Questions from '../components/Questions';
 import { useState } from 'react';
+import Calculator from '../components/Calculator';
 
 const PlanningPage = () => {
   const [oepnQuestonnaire, setQuestionnaire] = useState<Boolean>(false);
@@ -24,7 +25,9 @@ const PlanningPage = () => {
           </button>
           {oepnQuestonnaire ? <Questions /> : null}
         </div>
-
+        <div className=" p-4 max-w-xl mx-auto">
+          <Calculator />
+        </div>
         <div className=" p-4 max-w-xl mx-auto">
           <p>
             naplánuj si cestu- přestávky, zajímavá místa po cestě, finance,
