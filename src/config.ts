@@ -28,6 +28,24 @@ export type FormAnswers = {
   hobby: string;
 };
 
+export const initialFormAnswersCalculator: FormAnswersCalculator = {
+  startDestination: '',
+  endDestination: '',
+  km: 0,
+  fuel: 0,
+  price: 0,
+  tolls: 0,
+};
+
+export type FormAnswersCalculator = {
+  startDestination: string;
+  endDestination: string;
+  km: number;
+  fuel: number;
+  price: number;
+  tolls: number;
+};
+
 export const initialUser: User = {
   access_token: '',
   expires_in: 0,
