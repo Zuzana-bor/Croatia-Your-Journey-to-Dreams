@@ -10,6 +10,22 @@ const Calculator = () => {
     setShowFields(!showFields);
   };
 
+  const handleChangeNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormAnswersCalculator((prev) => ({
+      ...prev,
+      [event.target.name]: parseInt(event.target.value) || 0,
+    }));
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormAnswersCalculator((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  console.log(formAnswersCalculator);
+
   return (
     <>
       <div className="flex flex-col space-y-4 border rounded-md shadow-md max-w-md mx-auto p-2">
@@ -19,8 +35,8 @@ const Calculator = () => {
           <select
             className="border flex-grow p-2 "
             name="startDestination"
-            value={startDestination}
-            onChange={handleStartDestinationChange}
+            value={formAnswersCalculator.startDestination || ''}
+            onChange={handleChange}
           >
             <option value="">Vyberte start</option>
             <option value="Zlín">Zlín</option>
@@ -33,8 +49,8 @@ const Calculator = () => {
           <select
             className="border flex-grow p-2 "
             name="endDestination"
-            value={endDestination}
-            onChange={handleEndDestionationChange}
+            value={formAnswersCalculator.endDestination || ''}
+            onChange={handleChange}
           >
             <option value="">Vyberte destinaci</option>
             <option value="Umag">Umag</option>
@@ -50,20 +66,36 @@ const Calculator = () => {
               <input
                 className="border flex-grow p-2 ml-4"
                 name="km"
-                value={km}
+                value={formAnswersCalculator.km || ''}
+                onChange={handleChangeNumber}
               />
             </label>
             <label className="flex items-center ">
               <span className="w-1/2">Spotřeba paliva:</span>
-              <input className="border flex-grow p-2" name="fuel" />
+              <input
+                className="border flex-grow p-2"
+                name="fuel"
+                value={formAnswersCalculator.fuel || ''}
+                onChange={handleChangeNumber}
+              />
             </label>
             <label className="flex items-center ">
               <span className="w-1/2">Cena paliva:</span>
-              <input className="border flex-grow p-2" name="price" />
+              <input
+                className="border flex-grow p-2"
+                name="price"
+                value={formAnswersCalculator.price || ''}
+                onChange={handleChangeNumber}
+              />
             </label>
             <label className="flex items-center ">
               <span className="w-1/2">Mýtné:</span>
-              <input className="border flex-grow p-2" name="tolls" />
+              <input
+                className="border flex-grow p-2"
+                name="tolls"
+                value={formAnswersCalculator.tolls || ''}
+                onChange={handleChangeNumber}
+              />
             </label>
           </>
         )}
