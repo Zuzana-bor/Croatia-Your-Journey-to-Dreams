@@ -67,3 +67,18 @@ export const getIsFilled = ({
   hobby,
 }: FormAnswers): boolean =>
   !!name.length && !!age.length && !!color.length && !!hobby.length;
+
+export const getKm = (
+  startDestination: FormAnswersCalculator['startDestination'],
+  endDestination: FormAnswersCalculator['endDestination'],
+) => {
+  if (startDestination === 'Zlín' && endDestination === 'Split') {
+    return 860;
+  } else if (startDestination === 'Zlín' && endDestination === 'Umag') {
+    return 620;
+  } else if (startDestination === 'Zlín' && endDestination === 'Gradac') {
+    return 1050;
+  } else {
+    return 0;
+  }
+};

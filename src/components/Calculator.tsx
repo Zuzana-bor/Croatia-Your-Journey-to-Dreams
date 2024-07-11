@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { AppContext } from '../store/AppContext';
+import { getKm } from '../config';
 
 const Calculator = () => {
   const [showFields, setShowFields] = useState(false);
@@ -66,7 +67,10 @@ const Calculator = () => {
               <input
                 className="border flex-grow p-2 ml-4"
                 name="km"
-                value={formAnswersCalculator.km || ''}
+                value={getKm(
+                  formAnswersCalculator.startDestination,
+                  formAnswersCalculator.endDestination,
+                )}
                 onChange={handleChangeNumber}
               />
             </label>
