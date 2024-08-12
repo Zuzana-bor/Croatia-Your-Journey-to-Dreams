@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { AppContext } from '../store/AppContext';
-import { getKm } from '../config';
+import { getKm, getPrice } from '../config';
 
 const Calculator = () => {
   const [showFields, setShowFields] = useState(false);
@@ -67,30 +67,37 @@ const Calculator = () => {
               <input
                 className="border flex-grow p-2 ml-4"
                 name="km"
-                value={getKm(
-                  formAnswersCalculator.startDestination,
-                  formAnswersCalculator.endDestination,
-                )}
+                value={
+                  formAnswersCalculator.km
+                    ? formAnswersCalculator.km
+                    : (formAnswersCalculator.km = getKm(
+                        formAnswersCalculator.startDestination,
+                        formAnswersCalculator.endDestination,
+                      ))
+                }
                 onChange={handleChangeNumber}
               />
             </label>
+           
             <label className="flex items-center ">
-              <span className="w-1/2">Spotřeba paliva:</span>
-              <input
-                className="border flex-grow p-2"
-                name="fuel"
-                value={formAnswersCalculator.fuel || ''}
-                onChange={handleChangeNumber}
-              />
-            </label>
+            <span className="w-1/2">spotřeba na km</span>
+            <input
+              className="border flex-grow p-2"
+              name="consumption"
+              value={formAnswersCalculator.consumption || ''}
+              onChange={handleChangeNumber}
+            />
+          </label>
             <label className="flex items-center ">
               <span className="w-1/2">Cena paliva:</span>
               <input
                 className="border flex-grow p-2"
                 name="price"
-                value={formAnswersCalculator.price || ''}
+                value={formAnswersCalculator.price?formAnswersCalculator.price:(formAnswersCalculator.price=getPrice(formAnswersCalculator.consumption,formAnswersCalculator.km))}
                 onChange={handleChangeNumber}
               />
+            </label>
+          
             </label>
             <label className="flex items-center ">
               <span className="w-1/2">Mýtné:</span>

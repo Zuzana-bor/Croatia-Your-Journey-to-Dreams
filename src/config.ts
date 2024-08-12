@@ -32,6 +32,7 @@ export const initialFormAnswersCalculator: FormAnswersCalculator = {
   startDestination: '',
   endDestination: '',
   km: 0,
+  consumption: 0,
   fuel: 0,
   price: 0,
   tolls: 0,
@@ -41,6 +42,7 @@ export type FormAnswersCalculator = {
   startDestination: string;
   endDestination: string;
   km: number;
+  consumption: number;
   fuel: number;
   price: number;
   tolls: number;
@@ -81,4 +83,11 @@ export const getKm = (
   } else {
     return 0;
   }
+};
+
+export const getPrice = (
+  consumption: FormAnswersCalculator['consumption'],
+  km: FormAnswersCalculator['km'],
+) => {
+  return consumption * km;
 };
