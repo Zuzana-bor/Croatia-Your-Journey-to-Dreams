@@ -1,8 +1,9 @@
 import AboutCroatiaNews from '../layout/AboutCroatiaNews';
-import Header from '../layout/Header';
+
 import Questions from '../components/Questions';
 import { useState } from 'react';
 import Calculator from '../components/Calculator';
+import Hero from '../layout/Hero';
 
 const PlanningPage = () => {
   const [oepnQuestonnaire, setQuestionnaire] = useState<Boolean>(false);
@@ -12,7 +13,7 @@ const PlanningPage = () => {
   };
   return (
     <>
-      <Header />
+      <Hero />
       <AboutCroatiaNews />
       <div className="container flex flex-row flex-wrap mx-auto p-10">
         <div className=" p-4 max-w-xl mx-auto">

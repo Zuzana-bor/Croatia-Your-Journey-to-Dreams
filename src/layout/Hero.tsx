@@ -1,4 +1,4 @@
-import Header from './Header';
+import Menu from './Menu';
 
 const Hero = () => {
   return (
@@ -11,7 +11,7 @@ const Hero = () => {
         height: '100vh',
       }}
     >
-      <Header />
+      <Menu />
       <div className="absolute inset-0 bg-black opacity-25"></div>
       <div className="relative text-center text-white p-8">
         <h2 className="text-5xl font-bold">Discover Croatia</h2>

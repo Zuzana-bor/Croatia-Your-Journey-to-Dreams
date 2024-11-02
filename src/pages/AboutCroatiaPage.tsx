@@ -5,6 +5,7 @@ import AboutCroatiaNews from '../layout/AboutCroatiaNews';
 import MapOfCroatia from '../components/MapOfCroatia';
 import { useEffect, useState } from 'react';
 import GeoJSON from 'ol/format/GeoJSON';
+import Hero from '../layout/Hero';
 const AboutCroatiaPage = () => {
   const [features, setFeatures] = useState<Feature[]>([]);
   useEffect(() => {
@@ -25,6 +26,7 @@ const AboutCroatiaPage = () => {
   }, []);
   return (
     <>
+      <Hero />
       <AboutCroatiaNews />
       <div className="container mx-auto px-6 p-10">
         článek o chorvatku- v něm odkazy částí + měst Istrie, severní

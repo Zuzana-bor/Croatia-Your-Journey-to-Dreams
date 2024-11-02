@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Menu from '../components/Menu';
+import Menu from './Menu';
 import Search from '../components/Search';
 import Login from '../components/Login';
 

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-import MenuForMobil from './MenuForMobil';
+import MenuForMobil from '../components/MenuForMobil';
+import Login from '../components/Login';
+import Search from '../components/Search';
+import { Link } from 'react-router-dom';
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
@@ -9,19 +12,24 @@ const Menu = () => {
   };
   return (
     <>
-      <nav className="hidden md:flex space-x-4">
-        <a href="#destinations" className="text-white hover:text-yellow-300">
-          About Croatia
-        </a>
-        <a href="#accommodations" className="text-white hover:text-yellow-300">
+      <nav className="hidden md:flex space-x-2 justify-between items-center px-16">
+        <Link to={'/'}>
+          <div>logoo</div>
+        </Link>
+        <Link to={'/croatia'} className="text-white hover:text-yellow-300">
+          O Chorvatsku
+        </Link>
+        <Link to={'/planning'} className="text-white hover:text-yellow-300">
           Plánování trasy
-        </a>
-        <a href="#activities" className="text-white hover:text-yellow-300">
+        </Link>
+        <Link to={'/review'} className="text-white hover:text-yellow-300">
           Recenze
-        </a>
-        <a href="#activities" className="text-white hover:text-yellow-300">
+        </Link>
+        <Link to={'/media'} className="text-white hover:text-yellow-300">
           Sociální média
-        </a>
+        </Link>
+        <Login />
+        <Search />
       </nav>
       <div className="block md:hidden">
         <button

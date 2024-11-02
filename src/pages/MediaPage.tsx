@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import AboutCroatiaNews from '../layout/AboutCroatiaNews';
-import Header from '../layout/Header';
 import { AppContext } from '../store/AppContext';
+import Hero from '../layout/Hero';
 
 export type MediaItem = {
   baseUrl: string;
@@ -70,7 +70,7 @@ const MediaPage: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <Hero />
       <AboutCroatiaNews />
       <p>Fotky z alba "Test"</p>
       <button onClick={loadMediaItems}>Načíst fotky</button>
