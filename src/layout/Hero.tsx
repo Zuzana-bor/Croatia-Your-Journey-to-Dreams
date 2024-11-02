@@ -1,24 +1,28 @@
+import Header from './Header';
+
 const Hero = () => {
   return (
-    <>
-      <div className="relative h-60">
-        <img
-          src="/assets/Trogir.jpg"
-          alt="Trogir"
-          className="absolute w-full h-full object-cover opacity-30"
-        />
-        <div className="z-2 text-center font-bold text-xl absolute top-0 w-full h-full flex flex-col justify-center items-center ">
-          <h1 className="font-sans text-2xl mb-4">
-            Croatia: Your Journey to Dreams
-          </h1>
-          <h2>Prozkoumejte krásy Chorvatska!</h2>
-          <p>Naplánujte si nezapomenutelnou cestu s naší aplikací.</p>
-          <button className="bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 mt-4 rounded shadow transition-all hover:scale-110">
-            Začněte plánovat cestu
-          </button>
-        </div>
+    <section
+      className="relative h-[50vh] bg-cover bg-center"
+      style={{
+        backgroundImage: `url('/assets/Trogir.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '100vh',
+      }}
+    >
+      <Header />
+      <div className="absolute inset-0 bg-black opacity-25"></div>
+      <div className="relative text-center text-white p-8">
+        <h2 className="text-5xl font-bold">Discover Croatia</h2>
+        <p className="mt-4 text-lg">
+          Explore the beauty of Croatia’s coasts, cities, and culture.
+        </p>
+        <button className="mt-6 px-4 py-2 bg-yellow-500 rounded-full text-black">
+          Explore Now
+        </button>
       </div>
-    </>
+    </section>
   );
 };
 

@@ -78,27 +78,33 @@ const Calculator = () => {
                 onChange={handleChangeNumber}
               />
             </label>
-           
+
             <label className="flex items-center ">
-            <span className="w-1/2">spotřeba na km</span>
-            <input
-              className="border flex-grow p-2"
-              name="consumption"
-              value={formAnswersCalculator.consumption || ''}
-              onChange={handleChangeNumber}
-            />
-          </label>
+              <span className="w-1/2">spotřeba na km</span>
+              <input
+                className="border flex-grow p-2"
+                name="consumption"
+                value={formAnswersCalculator.consumption || ''}
+                onChange={handleChangeNumber}
+              />
+            </label>
             <label className="flex items-center ">
               <span className="w-1/2">Cena paliva:</span>
               <input
                 className="border flex-grow p-2"
                 name="price"
-                value={formAnswersCalculator.price?formAnswersCalculator.price:(formAnswersCalculator.price=getPrice(formAnswersCalculator.consumption,formAnswersCalculator.km))}
+                value={
+                  formAnswersCalculator.price
+                    ? formAnswersCalculator.price
+                    : (formAnswersCalculator.price = getPrice(
+                        formAnswersCalculator.consumption,
+                        formAnswersCalculator.km,
+                      ))
+                }
                 onChange={handleChangeNumber}
               />
             </label>
-          
-            </label>
+
             <label className="flex items-center ">
               <span className="w-1/2">Mýtné:</span>
               <input
