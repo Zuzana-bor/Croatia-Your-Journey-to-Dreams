@@ -16,7 +16,7 @@ const Menu = () => {
         <Link to={'/'}>
           <div>logoo</div>
         </Link>
-        <Link to={'/croatia'} className="text-white hover:text-yellow-300">
+        <Link to={`/croatia`} className="text-white hover:text-yellow-300">
           O Chorvatsku
         </Link>
         <Link to={'/planning'} className="text-white hover:text-yellow-300">

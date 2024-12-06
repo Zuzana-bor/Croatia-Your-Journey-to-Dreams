@@ -6,7 +6,7 @@ import AboutCroatiaPage from './pages/AboutCroatiaPage';
 import PlanningPage from './pages/PlanningPage';
 import MediaPage from './pages/MediaPage';
 import ErrorPage from './pages/ErrorPage';
-import Hero from './layout/Hero';
+
 export type Profile = {
   picture: string;
   name: string;
